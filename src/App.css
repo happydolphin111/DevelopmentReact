@@ -24,15 +24,90 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.FirstHalf {
+  background-color: #5f2c3f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.TeamCards {
+  background-color: #dcdcdc;
+}
+
+.TopOfPage {
+  color: white;
+  font-weight: 800;
+}
+
+.welcome {
+  text-align: left;
+  padding-left: 10vw;
+  padding-top: 10vw;
+  font-size: 3vw;
+}
+
+.mainHeader {
+  font-size: 8vw;
+}
+
+.subtitle {
+  font-size: 2vw;
+}
+
+.MenuBar {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  margin: 1vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  color: whitesmoke;
+  font-size: 1.5vw;
+  font-weight: 400;
+}
+
+.Filter {
+  padding-left: 1.5vw;
+}
+
+.Sorting {
+  padding-left: 1.5vw;
+}
+
+.popupInfo {
+  flex-direction: column;
+  background-color: #5f2c3f;
+  color: white;
+  padding: 0.5vw;
+  min-width: 28vw;
+}
+
+.descriptionMain1 {
+  text-decoration: underline;
+  font-weight: 600;
+  padding: 1vw;
+}
+
+.descriptionMain {
+  padding-left: 1vw;
+  padding-bottom: 0.5vw;
+}
+
+.popup-content {
+  margin: auto;
+  min-width: 29vw;
+  padding: 1vw;
+}
+.popup-arrow {
+  color: black;
+}
+[role="tooltip"].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: white;
+}
+[data-popup="tooltip"].popup-overlay {
+  background: transparent;
 }

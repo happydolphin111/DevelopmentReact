@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import "bootstrap"
-import "./Countries - Flags"
 import Teams from "./teams.json"
 import TeamConstructor from "./teamsConst"
 import Popup from 'reactjs-popup';
-import React from 'react';
+import 'reactjs-popup/dist/index.css';
+import React, { Component } from "react";
+import { useState } from "react";
+import { default as ReactSelect } from "react-select";
+import { components } from "react-select";
 
 
 function App() {
@@ -50,44 +53,33 @@ function App() {
 
 
     // Change Sort
-    const chSort = (array) => {
-      if (sort === "A-Z") {
-        return array.sort((a, b) => a.MatchNumber > b.MatchNumber);
-      } else {
-        array.sort((a, b) => a.MatchNumber < b.MatchNumber);
-      }
-    };
+    //const chSort = (array) => {
+      //if (chSort === "A-Z") {
+        //return array.sort((a, b) => a.MatchNumber > b.MatchNumber);
+      //} else {
+      //  array.sort((a, b) => a.MatchNumber < b.MatchNumber);
+      //}
+    //};
 
     // Change filter
 
-
-    
-
-
-
-  return (
-    <div className="App">
-        
-        <div className="welcome"> Welcome !</div>
-        <header className ="mainHeader"> QATAR 2022 </header>
-        <div className="subtitle"> Round of 16 </div>
-
-       
-        // You can filter the teams who are in the current round of the world cup by the continent they come from and what their mother tongue is!
-        // In addition to that, you can also sort these teams in alphabetical order. 
-        // Also, you can add and remove teams from you favorites, where you will also be able to see their cumulative amount of cups won.
-        // If in any moment you wish to reset your options, just press the reset button. 
-
-        // PopUp window with Instructions
-        <Popup trigger={<button className="info"> <img src="./Images/info.Icon.png"/></button>} position="right center">
+    // Dropdown menu component
+    const Option = (props) => {
+      return (
         <div>
-        <div className="descriptionMain"> In this page you will be able to: </div>
-        <div className="descriptionMain"> Filter current World Cup teams by their continent and mother tongue.</div>
-        <div className="descriptionMain"> Sort these teams from A-Z, or from Z-A</div>
-        <div className="descriptionMain"> Add and remove from Favorites, where you will be able to see the cumulative sum of world cups won</div>
-        <div className="descriptionMain"> </div>
+          <components.Option {...props}>
+            <input
+              type="checkbox"
+              checked={props.isSelected}
+              onChange={() => null}
+            />{" "}
+            <label>{props.label}</label>
+          </components.Option>
         </div>
-        </Popup>
+      );
+    };
+
+  
 
 
         // Layout:
@@ -98,19 +90,59 @@ function App() {
         // flexbox con cada "card" de cada equipo!! 
         // Also need section with favorite teams 
 
+  return (
+    <div className="App">
+        
+        <div className="FirstHalf">
+        {/* Headers */}
+        <div className="TopOfPage">
+        <div className="welcome"> Welcome!</div>
+        <div className="subtitle"> WORLD CUP </div>
+        <header className ="mainHeader"> QATAR 2022 </header>
+        <div className="subtitle"> Round of 16 </div>
+        </div>
+
+        {/* Menu Bar */}
+        <div className="MenuBar">
+      
+        <div className="Filter">
+        <div className="MenuItem"> Country </div>
+        
+     
+    
+        </div>
+
+        <div className="Filter">
+        <div className="MenuItem"> Language Spoken </div>  
+        </div>
 
         <div className="Sorting"> 
+        <div className="MenuItem"> Sort </div>
         <select defaultValue={'ascending'}>
-        <option value="ascending">Ascending</option>
-        <option value="descending">Descending</option>
+        <option value="ascending">A-Z</option>
+        <option value="descending">Z-A</option>
         </select>
         </div>
       
-      <div className="Filter:Country"></div>
 
-      <div className="Filter:Language"></div>
+        {/* PopUp window with Instructions */}
+        <Popup trigger={<button className="info"> <img src="./Images/info.Icon.png"/></button>} position="right">
+        <div className="popupInfo">
+        <div className="descriptionMain1"> In this page you will be able to: </div>
+        <div className="descriptionMain"> - Filter current World Cup teams by their continent and mother tongue</div>
+        <div className="descriptionMain"> - Sort these teams from A-Z, or from Z-A</div>
+        <div className="descriptionMain"> - Add and remove from Favorites, where you will be able to see the cumulative sum of world cups won</div>
+        </div>
+        </Popup>
 
-      <div className="TeamCards"></div>
+        </div>
+
+        </div>
+
+      <div className="TeamCards">
+
+
+      </div>
     </div>
   );
 }

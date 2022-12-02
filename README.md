@@ -1,9 +1,12 @@
 # Development
 
 ### Link to Deployed Website
-If you used the stencil code, this is `https://<your GitHub username>.github.io/<name of your repository>`
+
+If you used the stencil code, this is `https://happydolphin111.github.io/DevelopmentReact`
 
 ### Goal and Value of the Application
+
+This application can be used by anyone interested in seeing what teams are currently participating in the World Cup, and wants to learn more about them.
 
 ### Usability Principles Considered
 
@@ -13,3 +16,4 @@ If you used the stencil code, this is `https://<your GitHub username>.github.io/
 
 ### How the User Triggers State Changes
 
+The user triggers state changes when filtering by country and language, as well as by sorting and adding/removing from favorites.
