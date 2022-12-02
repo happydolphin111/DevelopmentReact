@@ -4,6 +4,8 @@ import "bootstrap"
 import "./Countries - Flags"
 import Teams from "./teams.json"
 import TeamConstructor from "./teamsConst"
+import Popup from 'reactjs-popup';
+import React from 'react';
 
 
 function App() {
@@ -59,18 +61,33 @@ function App() {
     // Change filter
 
 
+    
+
 
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        
+        <div className="welcome"> Welcome !</div>
+        <header className ="mainHeader"> QATAR 2022 </header>
+        <div className="subtitle"> Round of 16 </div>
 
-        // Welcome!
+       
         // You can filter the teams who are in the current round of the world cup by the continent they come from and what their mother tongue is!
         // In addition to that, you can also sort these teams in alphabetical order. 
         // Also, you can add and remove teams from you favorites, where you will also be able to see their cumulative amount of cups won.
         // If in any moment you wish to reset your options, just press the reset button. 
+
+        // PopUp window with Instructions
+        <Popup trigger={<button className="info"> <img src="./Images/info.Icon.png"/></button>} position="right center">
+        <div>
+        <div className="descriptionMain"> In this page you will be able to: </div>
+        <div className="descriptionMain"> Filter current World Cup teams by their continent and mother tongue.</div>
+        <div className="descriptionMain"> Sort these teams from A-Z, or from Z-A</div>
+        <div className="descriptionMain"> Add and remove from Favorites, where you will be able to see the cumulative sum of world cups won</div>
+        <div className="descriptionMain"> </div>
+        </div>
+        </Popup>
 
 
         // Layout:
@@ -79,6 +96,7 @@ function App() {
         // row con: sorting, filtering: continent, filtering: club y favorites option
           // Sorting: dropdown menu: "A-Z" and "Z-A" (mutually exclusive)
         // flexbox con cada "card" de cada equipo!! 
+        // Also need section with favorite teams 
 
 
         <div className="Sorting"> 
@@ -93,8 +111,6 @@ function App() {
       <div className="Filter:Language"></div>
 
       <div className="TeamCards"></div>
-
-      </header>
     </div>
   );
 }
