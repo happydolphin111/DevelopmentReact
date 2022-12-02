@@ -1,0 +1,116 @@
+[
+
+    {
+        "country": "Argentina",
+        "firstLetter": "A",
+        "flag": "src/Countries - Flags/Argentina <3.png",
+        "continent": "South America",
+        "cups": 2
+    },
+
+    {
+        "country": "Brasil",
+        "firstLetter": "B",
+        "flag": "src/Countries - Flags/Brasil.png",
+        "continent": "South America",
+        "cups": 5
+    },
+
+    {
+        "country": "Croatia",
+        "firstLetter": "C",
+        "flag": "src/Countries - Flags/Croatia.png",
+        "continent": "Europe",
+        "cups": 0
+    },
+
+    {
+        "country": "England",
+        "firstLetter": "E",
+        "flag": "src/Countries - Flags/England.png",
+        "continent": "Europe",
+        "cups": 1
+    },
+
+    {
+        "country": "France",
+        "firstLetter": "F",
+        "flag": "src/Countries - Flags/France.png",
+        "continent": "Europe",
+        "cups": 2
+    },
+
+    {
+        "country": "Japan",
+        "firstLetter": "J",
+        "flag": "src/Countries - Flags/Japan.png",
+        "continent": "Asia",
+        "cups": 0
+    },
+
+    {
+        "country": "Morocco",
+        "firstLetter": "M",
+        "flag": "src/Countries - Flags/Morocco.png",
+        "continent": "Africa",
+        "cups": 0
+    },
+
+    {
+        "country": "Netherlands",
+        "firstLetter": "N",
+        "flag": "src/Countries - Flags/Netherlands.png",
+        "continent": "Europe",
+        "cups": 0
+    },
+
+    {
+        "country": "Poland",
+        "firstLetter": "P",
+        "flag": "src/Countries - Flags/Poland.png",
+        "continent": "Europe",
+        "cups": 0
+    },
+
+    {
+        "country": "Portugal",
+        "firstLetter": "P",
+        "flag": "src/Countries - Flags/Portugal.png",
+        "continent": "Europe",
+        "cups": 0
+    },
+
+    {
+        "country": "Senegal",
+        "firstLetter": "S",
+        "flag": "src/Countries - Flags/Senegal.png",
+        "continent": "Africa",
+        "cups": 0
+    },
+
+    {
+        "country": "South Korea",
+        "firstLetter": "S",
+        "flag": "src/Countries - Flags/South Korea.png",
+        "continent": "Asia",
+        "cups": 0
+    },
+
+    {
+        "country": "Spain",
+        "firstLetter": "S",
+        "flag": "src/Countries - Flags/Spain.png",
+        "continent": "Europa",
+        "cups": 1
+    },
+
+    {
+        "country": "United States",
+        "firstLetter": "U",
+        "flag": "src/Countries - Flags/USA.png",
+        "continent": "North America",
+        "cups": 0
+    }
+
+
+]
