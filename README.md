@@ -16,4 +16,4 @@ This application can be used by anyone interested in seeing what teams are curre
 
 ### How the User Triggers State Changes
 
-The user triggers state changes when filtering by country and language, as well as by sorting and adding/removing from favorites.
+The user triggers state changes when filtering by continent and language, as well as by sorting and adding/removing from favorites.

@@ -1,18 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,6 +20,7 @@
 .TopOfPage {
   color: white;
   font-weight: 800;
+  text-align: center;
 }
 
 .welcome {
@@ -57,20 +43,28 @@
   flex-direction: row;
   align-items: baseline;
   justify-content: center;
-  margin: 1vw;
+  text-align: center;
   padding-left: 1vw;
   padding-right: 1vw;
   color: whitesmoke;
   font-size: 1.5vw;
   font-weight: 400;
+  padding-bottom: 2vw;
+  padding-top: 2vw;
+  background-color: rgba(255, 255, 255, 0.29);
+  margin: 4vw;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  margin-right: 15vw;
+  margin-left: 15vw;
 }
 
 .Filter {
-  padding-left: 1.5vw;
+  padding: 1vw;
 }
 
 .Sorting {
-  padding-left: 1.5vw;
+  padding: 1vw;
 }
 
 .popupInfo {
@@ -78,7 +72,7 @@
   background-color: #5f2c3f;
   color: white;
   padding: 0.5vw;
-  min-width: 28vw;
+  min-width: 20vw;
 }
 
 .descriptionMain1 {
@@ -94,14 +88,14 @@
 
 .popup-content {
   margin: auto;
-  min-width: 29vw;
+  min-width: 22vw;
   padding: 1vw;
 }
 .popup-arrow {
   color: black;
 }
 [role="tooltip"].popup-content {
-  width: 200px;
+  width: 100px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
 
@@ -110,4 +104,69 @@
 }
 [data-popup="tooltip"].popup-overlay {
   background: transparent;
+}
+
+.tituloFavs {
+  text-align: left;
+  padding-left: 1vw;
+  font-weight: 800;
+  font-size: 2vw;
+  padding-top: 15px;
+}
+
+.copas {
+  text-align: right;
+  padding-right: 1vw;
+  padding-bottom: 1vw;
+  font-size: 1.5vw;
+  font-style: oblique;
+}
+
+.TeamCard {
+  background-color: #5f2c3f;
+  width: 350px;
+  margin: 1vw;
+  padding: 1vw;
+  display: flex;
+  flex-direction: row;
+  margin: 1vw;
+  padding: 3vw;
+  border-radius: 25px;
+}
+
+.teamdivision {
+  padding-right: 1vw;
+}
+
+.TeanCards {
+}
+
+.teams {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Country {
+  font-weight: 700;
+  font-size: 1.75vw;
+  text-transform: uppercase;
+  color: white;
+}
+
+.descr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 1.4vw;
+  font-weight: 500;
+  padding: 0.1vw;
+  margin-right: 5px;
+  color: rgb(244, 244, 244);
+}
+
+.Header {
+  font-weight: 550;
+  color: rgb(189, 189, 189);
+  padding-right: 3px;
 }
