@@ -101,15 +101,11 @@ function App() {
     }
     };
 
-    const handleClick = (choice) => {
-      if (choice === "ascending") {
-        setSort("ascending")
-      }
-      else {
-        setSort("descending")
-      }
-
+    const handleClick = (e) => {
+      sort = e.target.value
+      setSort(sort)
     }
+
   
 
     // Change filter
@@ -350,9 +346,11 @@ function App() {
         <div className="MenuItem"> Sort </div>
      
         <select 
+              //onChange={(e) => setSort({sort: e.target.value})}
+              onChange={handleClick}
               value={sort}
-              onClick={handleClick}
               >
+
         <option value="ascending"> A-Z </option>
         <option value="descending"> Z-A </option>
   
