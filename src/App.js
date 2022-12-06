@@ -62,6 +62,7 @@ function App() {
   // Initializing Section
   const [favsArray, setFavsArray] = useState([]) // Array keeping track of favorite teams
   const [favsSum, setfavsSum] = useState(0) // Aggregator value is adding the number of cups won between favorite teams
+
   const [teamsArray, setTeamsArray] = useState(teams) // Array of all teams
 
   // Changing states
@@ -93,12 +94,22 @@ function App() {
 
   // Change Sort
     const Sorting = (array) => {
-    if (sort === "A-Z") {
+    if (sort === "ascending") {
       setTeamsArray(array.sort((a, b) => a.country > b.country));
     } else {
       setTeamsArray(array.sort((a, b) => a.country < b.country));
     }
     };
+
+    const handleClick = (choice) => {
+      if (choice === "ascending") {
+        setSort("ascending")
+      }
+      else {
+        setSort("descending")
+      }
+
+    }
   
 
     // Change filter
@@ -245,15 +256,6 @@ function App() {
           setOpen(!open);
         };
 
-    const handleClick = (choice) => {
-      if (choice === "A-Z") {
-        setSort("A-Z")
-      }
-      else {
-        setSort("Z-A")
-      }
-
-    }
     
   return (
     <div className="App">
@@ -347,7 +349,7 @@ function App() {
         <div className="Sorting"> 
         <div className="MenuItem"> Sort </div>
      
-        <select defaultValue={'ascending'}
+        <select 
               value={sort}
               onClick={handleClick}
               >
@@ -377,7 +379,6 @@ function App() {
       <div className="FavsSection">
       
       <div className="tituloFavs"> FAVORITES </div>
-      {/*Where teams will go*/}
       {favsArray.map((item, index) => (
           <div>
             <p>{item.country}</p>
