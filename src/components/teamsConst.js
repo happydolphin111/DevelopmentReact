@@ -10,12 +10,12 @@ export default function TeamCard(props) {
     const language = props.language
     const continent = props.continent
     const cups = props.cups
-    const AddToFavs = props.AddToFavs
+    const ToFavs = props.ToFavs
 
  
 
     const handleClickA =() => {
-      AddToFavs(props)
+      ToFavs(props)
     }
 
     return (

@@ -48,7 +48,7 @@ function App() {
   const [Japanese, setJapanese] = useState(false)
 
   // State Variable for sorting: alphabetically
-  const [sort, setSort] = useState("A-Z");
+  const [sort, setSort] = useState("ascending");
   //teamsArray.sort((a, b) => a.firstLetter > b.firstLetter);
   //setTeamsArray(teamsArray) // Defaults to teams sorted in alphabetical order
 
@@ -60,7 +60,7 @@ function App() {
 
 
   // Initializing Section
-  const [favsArray, setFavsArray] = useState([]) // Array keeping track of favorite teams
+  const [fav, setFav] = useState(new Set()) // Set keeping track of favorite teams
   const [favsSum, setfavsSum] = useState(0) // Aggregator value is adding the number of cups won between favorite teams
 
   const [teamsArray, setTeamsArray] = useState(teams) // Array of all teams
@@ -70,41 +70,37 @@ function App() {
   // Favorites
 
     // Add/Remove from Favs
-    function AddToFavs(item) {
-      let count = 0
-      favsArray.forEach(element => {
-        if (element.country === item.country) {
-        count += 1;
-
-          if (count = 0){
-            setFavsArray([...favsArray, item])
+    function ToFavs(item) {
+          if (fav.includes(item)){
+            let newFav = new Set(fav)
+            newFav.remove(item)
+            setFav(newFav)
           }
           else {
-            setFavsArray(favsArray.splice(favsArray.indexOf(item), 1))
+            let newFav = new Set(fav)
+            newFav.add(item)
+            setFav(newFav)
           }
-          
-        } })
         
     // Cumulative Sum of Cups
     var numberCups = 0;
-        for (var i = 0; i < favsArray.length; i++) {
-        numberCups += favsArray[i].cups;}
+        for (var i = 0; i < fav.size; i++) {
+        numberCups += fav[i].cups;}
         setfavsSum(numberCups);
       };
 
   // Change Sort
-    const Sorting = (array) => {
-    if (sort === "ascending") {
-      setTeamsArray(array.sort((a, b) => a.country > b.country));
-    } else {
-      setTeamsArray(array.sort((a, b) => a.country < b.country));
-    }
-    };
-
     const handleClick = (e) => {
-      sort = e.target.value
+
+      const sort = e.target.value
       setSort(sort)
-    }
+
+      if (sort === "ascending") {
+        setTeamsArray(teamsArray.sort((a, b) => a.country < b.country ? -1 : 1));
+      } else {
+        setTeamsArray(teamsArray.sort((a, b) => a.country > b.country ? -1 : 1));
+      }
+    };
 
   
 
@@ -377,7 +373,7 @@ function App() {
       <div className="FavsSection">
       
       <div className="tituloFavs"> FAVORITES </div>
-      {favsArray.map((item, index) => (
+      {fav.map((item, index) => (
           <div>
             <p>{item.country}</p>
             <p>{item.cups}</p>
@@ -400,7 +396,7 @@ function App() {
           language={item.language} 
           continent={item.continent} 
           cups={item.cups} 
-          AddToFavs={AddToFavs} />
+          ToFavs={ToFavs} />
         ))}
         
       </div>
