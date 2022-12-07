@@ -18,6 +18,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Form from 'react-bootstrap/Form';
 import { propTypes } from 'react-bootstrap/esm/Image';
+import { teal } from '@mui/material/colors';
 
 
    //Images
@@ -60,7 +61,9 @@ function App() {
 
 
   // Initializing Section
-  const [fav, setFav] = useState(new Set()) // Set keeping track of favorite teams
+  //const [fav, setFav] = useState(new Set()) // Array keeping track of favorite teams
+  const [fav, setFav] = useState([])
+
   const [favsSum, setfavsSum] = useState(0) // Aggregator value is adding the number of cups won between favorite teams
 
   const [teamsArray, setTeamsArray] = useState(teams) // Array of all teams
@@ -69,30 +72,48 @@ function App() {
 
   // Favorites
 
-    // Add/Remove from Favs
-    function ToFavs(item) {
-          if (fav.includes(item)){
-            let newFav = new Set(fav)
-            newFav.remove(item)
-            setFav(newFav)
+    // Add/Remove from Favs (w/ Set)
+  {/*function AddToFavs(item) {
+      const newFav = new Set(fav)
+          if (fav.has(item)){
+            newFav.delete(item)  
           }
           else {
-            let newFav = new Set(fav)
-            newFav.add(item)
-            setFav(newFav)
+            newFav.add(item)  
           }
+          setFav(newFav)
         
     // Cumulative Sum of Cups
     var numberCups = 0;
-        for (var i = 0; i < fav.size; i++) {
-        numberCups += fav[i].cups;}
+        for (var i = 0; i < fav.size(); i++) {
+        numberCups += fav(i).cups;}
         setfavsSum(numberCups);
       };
+    */}
+
+
+      function AddToFavs(item) {
+        const newFav = [...fav]
+          if (newFav.includes(item)){
+              newFav = [...fav, item] 
+            }
+          else {
+              newFav.splice(newFav.indexOf(item), 1) 
+            }
+          setFav(newFav)
+          
+      // Cumulative Sum of Cups
+      var numberCups = 0;
+          for (var i = 0; i < fav.length(); i++) {
+          numberCups += fav[i].cups;}
+          setfavsSum(numberCups);
+        };
+  
 
   // Change Sort
-    const handleClick = (e) => {
 
-      const sort = e.target.value
+    const handleClickB = (e) => {
+      sort = e.target.value
       setSort(sort)
 
       if (sort === "ascending") {
@@ -100,7 +121,7 @@ function App() {
       } else {
         setTeamsArray(teamsArray.sort((a, b) => a.country > b.country ? -1 : 1));
       }
-    };
+    }
 
   
 
@@ -343,7 +364,7 @@ function App() {
      
         <select 
               //onChange={(e) => setSort({sort: e.target.value})}
-              onChange={handleClick}
+              onChange={handleClickB}
               value={sort}
               >
 
@@ -373,13 +394,22 @@ function App() {
       <div className="FavsSection">
       
       <div className="tituloFavs"> FAVORITES </div>
-      {fav.map((item, index) => (
+      
+      {fav.map((item) => (
           <div>
             <p>{item.country}</p>
             <p>{item.cups}</p>
           </div>
 
-        ))}
+      ))} 
+
+      {/*{fav.map((item, index) => (
+          <div>
+            <p>{item.country}</p>
+            <p>{item.cups}</p>
+          </div>
+
+      ))} */}
 
       <div className="copas"> Cumulative Number of Cups: {favsSum}</div>
 
@@ -396,7 +426,7 @@ function App() {
           language={item.language} 
           continent={item.continent} 
           cups={item.cups} 
-          ToFavs={ToFavs} />
+          AddToFavs={AddToFavs} />
         ))}
         
       </div>
