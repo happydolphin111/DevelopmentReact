@@ -13,14 +13,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import info from "./assets/Images/info.Icon.png";
 //import heart from "./Images/heart.jpeg";
-import Select from 'react-select';
-import Dropdown from 'react-bootstrap/Dropdown'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Form from 'react-bootstrap/Form';
-import { propTypes } from 'react-bootstrap/esm/Image';
-import { teal } from '@mui/material/colors';
-import { ListItem } from '@mui/material';
-
 
    //Images
 
@@ -31,34 +23,28 @@ function App() {
   //Setting the state variables:
 
   // State variable for filtering: continent 
-  const [SouthAmerica, setSouthAmerica] = useState(true)
-  const [NorthAmerica, setNorthAmerica] = useState(true)
-  const [Asia, setAsia] = useState(true)
-  const [Africa, setAfrica] = useState(true)
-  const [Europe, setEurope] = useState(true)
+  const [SouthAmerica, setSouthAmerica] = useState(false)
+  const [NorthAmerica, setNorthAmerica] = useState(false)
+  const [Asia, setAsia] = useState(false)
+  const [Africa, setAfrica] = useState(false)
+  const [Europe, setEurope] = useState(false)
 
   // State variable filtering: language
-  const [Spanish, setSpanish] = useState(true)
-  const [Portuguese, setPortuguese] = useState(true)
-  const [English, setEnglish] = useState(true)
-  const [French, setFrench] = useState(true)
-  const [Croatian, setCroatian] = useState(true)
-  const [Polish, setPolish] = useState(true)
-  const [Arabic, setArabic] = useState(true)
-  const [Korean, setKorean] = useState(true)
-  const [Dutch, setDutch] = useState(true)
-  const [Japanese, setJapanese] = useState(true)
+  const [Spanish, setSpanish] = useState(false)
+  const [Portuguese, setPortuguese] = useState(false)
+  const [English, setEnglish] = useState(false)
+  const [French, setFrench] = useState(false)
+  const [Croatian, setCroatian] = useState(false)
+  const [Polish, setPolish] = useState(false)
+  const [Arabic, setArabic] = useState(false)
+  const [Korean, setKorean] = useState(false)
+  const [Dutch, setDutch] = useState(false)
+  const [Japanese, setJapanese] = useState(false)
 
   // State Variable for sorting: alphabetically
   const [sort, setSort] = useState("ascending");
   //teamsArray.sort((a, b) => a.firstLetter > b.firstLetter);
   //setTeamsArray(teamsArray) // Defaults to teams sorted in alphabetical order
-
-  // State variable for aggregator number of cups won
-  const [Zero, setZero] = useState(false)
-  const [One, setOne] = useState(false) 
-  const [Two, setTwo] = useState(false)
-  const [Five, setFive] = useState(false)
 
 
   // Initializing Section
@@ -67,8 +53,8 @@ function App() {
 
   const [favsSum, setfavsSum] = useState(0) // Aggregator value is adding the number of cups won between favorite teams
 
-  const [initialArray, setInitialArray] = useState(teams)
-  const [teamsArray, setTeamsArray] = useState(initialArray) // Array of all teams
+
+  const [teamsArray, setTeamsArray] = useState(teams) // Array of all teams
 
   // Changing states
 
@@ -122,205 +108,184 @@ function App() {
       let sort1 = e.target.value
       setSort(sort1)
 
-      if (sort === "descending") {
-        setTeamsArray(teamsArray.sort((a, b) => a.country < b.country ? -1 : 1));
+      if (sort === "ascending") {
+        setTeamsArray(teamsArray.sort((a, b) => a.country < b.country));
       } else {
-        setTeamsArray(teamsArray.sort((a, b) => a.country > b.country ? -1 : 1));
+        setTeamsArray(teamsArray.sort((a, b) => a.country > b.country));
       }
     }
 
+
     // Change filter
+
     // Continents
-    const filterSouthAmerica = (e) => {
-    const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setSouthAmerica(false)
-        setTeamsArray(teamsArray.filter(data => data.continent !== "South America"))}
-        else {
-        setSouthAmerica(true)
-        const single_data = new_array.filter(data => data.continent === "South America")
-        setTeamsArray(teamsArray.concat(single_data))
-        }
-      };
+    const filterSouthAmerica = (array) => {
+      if (SouthAmerica) {
+        return (array.filter(data => data.continent === "South America"))
+      }
+      else{
+        return array
+      }
+    }
 
-    const filterNorthAmerica = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setNorthAmerica(false)
-        setTeamsArray(teamsArray.filter(data => data.continent !== "North America"))}
-        else {
-          setNorthAmerica(true)
-          const single_data = new_array.filter(data => data.continent === "North America")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-      };
+    const filterNorthAmerica = (array) => {
+      if (NorthAmerica) {
+        return (array.filter(data => data.continent === "North America"))
+      }
+      else{
+        return array
+      }
+    }
   
-    const filterAsia = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setAsia(false)
-        setTeamsArray(teamsArray.filter(data => data.continent !== "Asia"))}
-        else {
-          setAsia(true)
-          const single_data = new_array.filter(data => data.continent === "Asia")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-      };
+    const filterAsia = (array) => {
+      if (Asia) {
+        return (array.filter(data => data.continent === "Asia"))
+      }
+      else{
+        return array
+      }
+    }
 
-    const filterAfrica = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setAfrica(false)
-        setTeamsArray(teamsArray.filter(data => data.continent !== "Africa"))}
-        else {
-          setAfrica(true)
-          const single_data = new_array.filter(data => data.continent === "Africa")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-      };
+    const filterAfrica = (array) => {
+      if (Africa) {
+        return (array.filter(data => data.continent === "Africa"))
+      }
+      else{
+        return array
+      }
+    }
 
-    const filterEurope = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setEurope(false)
-        setTeamsArray(teamsArray.filter(data => data.continent !== "Europe"))}
-        else {
-          setEurope(true)
-          const single_data = new_array.filter(data => data.continent === "Europe")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-      };
+    const filterEurope = (array) => {
+      if (Europe) {
+        return (array.filter(data => data.continent === "Europe"))
+      }
+      else{
+        return array
+      }
+    }
 
     // Language
 
-    const filterSpanish= (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setSpanish(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Spanish"))}
-        else {
-          setSpanish(true)
-          const single_data = new_array.filter(data => data.language === "Spanish")
-          //setTeamsArray(teamsArray.concat(single_data));
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-      };
+    const filterSpanish = (array) => {
+      if (Spanish) {
+        return (array.filter(data => data.language === "Spanish"))
+      }
+      else{
+        return array
+      }
+    }
 
-    const filterPortuguese = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setPortuguese(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Portuguese"))}
-        else {
-          setPortuguese(true)
-          const single_data = new_array.filter(data => data.language === "Portuguese")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
+    const filterPortuguese = (array) => {
+      if (Portuguese) {
+        return (array.filter(data => data.language === "Portuguese"))
+      }
+      else{
+        return array
+      }
+    }
 
-    };
+    const filterEnglish = (array) => {
+      if (English) {
+        return (array.filter(data => data.language === "English"))
+      }
+      else{
+        return array
+      }
+    }
 
-    const filterEnglish = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setEnglish(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "English"))}
-        else {
-          setEnglish(true)
-          const single_data = new_array.filter(data => data.language === "English")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
-
-    const filterFrench = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setFrench(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "French"))}
-        else {
-          setFrench(true)
-          const single_data = new_array.filter(data => data.language === "French")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
+    const filterFrench= (array) => {
+      if (French) {
+        return (array.filter(data => data.language === "French"))
+      }
+      else{
+        return array
+      }
+    }
 
 
-    const filterCroatian = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setCroatian(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Croatian"))}
-        else {
-          setCroatian(true)
-          const single_data = new_array.filter(data => data.language === "Croatian")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
+    const filterCroatian = (array) => {
+      if (Croatian) {
+        return (array.filter(data => data.language === "Croatian"))
+      }
+      else{
+        return array
+      }
+    }
+
+    const filterPolish= (array) => {
+      if (Polish) {
+        return (array.filter(data => data.language === "Polish"))
+      }
+      else{
+        return array
+      }
+    }
 
 
-    const filterPolish = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setPolish(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Polish"))}
-        else {
-          setPolish(true)
-          const single_data = new_array.filter(data => data.language === "Polish")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
+    const filterArabic= (array) => {
+      if (Arabic) {
+        return (array.filter(data => data.language === "Arabic"))
+      }
+      else{
+        return array
+      }
+    }
 
+    const filterKorean= (array) => {
+      if (Korean) {
+        return (array.filter(data => data.language === "Korean"))
+      }
+      else{
+        return array
+      }
+    }
 
-    const filterArabic = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setArabic(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Arabic"))}
-        else {
-          setArabic(true)
-          const single_data = new_array.filter(data => data.language === "Arabic")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
+    const filterDutch= (array) => {
+      if (Dutch) {
+        return (array.filter(data => data.language === "Dutch"))
+      }
+      else{
+        return array
+      }
+    }
 
-
-    const filterKorean = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setKorean(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Korean"))}
-        else {
-          setKorean(true)
-          const single_data = new_array.filter(data => data.language === "Korean")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
-
-
-    const filterDutch = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setDutch(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Dutch"))}
-        else {
-          setDutch(true)
-          const single_data = new_array.filter(data => data.language === "Dutch")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
-
-
-    const filterJapanese = (e) => {
-      const new_array = [...initialArray]
-      if (e.target.checked === false) {
-        setJapanese(false)
-        setTeamsArray(teamsArray.filter(data => data.language !== "Japanese"))}
-        else {
-          setJapanese(true)
-          const single_data = new_array.filter(data => data.language === "Japanese")
-          setTeamsArray(teamsArray.concat(single_data));
-        }
-    };
+    const filterJapanese= (array) => {
+      if (Japanese) {
+        return (array.filter(data => data.language === "Japanese"))
+      }
+      else{
+        return array
+      }
+    }
     
+
+    useEffect(() => {
+      let teamsArray = [...teams];
+
+      teamsArray = filterSouthAmerica(teamsArray);
+      teamsArray = filterNorthAmerica(teamsArray);
+      teamsArray = filterAfrica(teamsArray);
+      teamsArray = filterAsia(teamsArray);
+      teamsArray = filterEurope(teamsArray);
+
+      teamsArray = filterSpanish(teamsArray);
+      teamsArray = filterPortuguese(teamsArray);
+      teamsArray = filterEnglish(teamsArray);
+      teamsArray = filterFrench(teamsArray);
+      teamsArray = filterPolish(teamsArray);
+      teamsArray = filterCroatian(teamsArray);
+      teamsArray = filterDutch(teamsArray);
+      teamsArray = filterArabic(teamsArray);
+      teamsArray = filterKorean(teamsArray);
+      teamsArray = filterJapanese(teamsArray);
+
+      setTeamsArray(teamsArray)
+
+    }, [filterSouthAmerica, filterNorthAmerica, filterAfrica, filterAsia, filterEurope, filterSpanish, filterPortuguese,
+    filterEnglish, filterFrench, filterPolish, filterCroatian, filterDutch, filterArabic, filterKorean, filterJapanese]
+    )
+
+
   return (
     <div className="App">
         
@@ -342,12 +307,11 @@ function App() {
 
 
         <div className="continentss"> 
+
         <FormControlLabel
-            control=
-            {<Checkbox 
+            control= {<Checkbox 
             checked={SouthAmerica}
-            onChange={(event) => filterSouthAmerica(event)}
-            
+            onChange={(e) => {setSouthAmerica(e.target.checked);}}
             />}
               label="South America"
           />
@@ -355,28 +319,31 @@ function App() {
         <FormControlLabel
             control={<Checkbox 
             checked={NorthAmerica}
-            onChange={(event) => filterNorthAmerica(event)}
+            onChange={(e) => { setNorthAmerica(e.target.checked); }}
               />}
             label="North America"
           />
 
         <FormControlLabel
-            control={<Checkbox checked={Europe}
-            onChange={(event) => filterEurope(event)}
+            control={<Checkbox 
+            checked={Europe}
+            onChange={(e) => { setEurope(e.target.checked); }}
             />}
             label="Europe"
             />     
 
         <FormControlLabel
-                control={<Checkbox checked={Africa}
-                onChange={(event) => filterAfrica(event)}
+                control={<Checkbox 
+                checked={Africa}
+                onChange={(e) => { setAfrica(e.target.checked); }}
                 />}
                 label="Africa"
               />     
 
         <FormControlLabel
-                control={<Checkbox checked={Asia}
-                onChange={(event) => filterAsia(event)}
+                control={<Checkbox 
+                checked={Asia}
+                onChange={(e) => { setAsia(e.target.checked); }}
                 />}
                 label="Asia"
               />     
@@ -390,19 +357,21 @@ function App() {
     <div>
     <FormControlLabel
         control={<Checkbox checked={Spanish}
-        onChange={(event) => filterSpanish(event)} />}
+        onChange={(e) => { setSpanish(e.target.checked); }}
+        />}
        label="Spanish"
       />     
 
       <FormControlLabel
         control={<Checkbox checked={Portuguese}
-        onChange={(event) => filterPortuguese(event)} />}
+        onChange={(e) => { setPortuguese(e.target.checked); }}
+        />}
        label="Portuguese"
       />   
 
       <FormControlLabel
         control={<Checkbox checked={English}
-        onChange={(event) => filterEnglish(event)} />}
+        onChange={(e) => { setEnglish(e.target.checked); }} />}
        label="English"
       />   
 
@@ -411,19 +380,19 @@ function App() {
 <div>
       <FormControlLabel
         control={<Checkbox checked={French}
-        onChange={(event) => filterFrench(event)} />}
+        onChange={(event) => setFrench(event)} />}
        label="French"
       />   
 
       <FormControlLabel
         control={<Checkbox checked={Croatian}
-        onChange={(event) => filterCroatian(event)} />}
+        onChange={(e) => { setCroatian(e.target.checked); }} />}
        label="Croatian"
       />   
 
       <FormControlLabel
         control={<Checkbox checked={Polish}
-        onChange={(event) => filterPolish(event)} />}
+        onChange={(e) => { setPolish(e.target.checked); }}/>}
        label="Polish"
       />   
 
@@ -432,25 +401,25 @@ function App() {
 <div>
       <FormControlLabel
         control={<Checkbox checked={Arabic}
-        onChange={(event) => filterArabic(event)} />}
+        onChange={(e) => { setArabic(e.target.checked); }} />}
        label="Arabic"
       />   
 
       <FormControlLabel
         control={<Checkbox checked={Korean}
-        onChange={(event) => filterKorean(event)} />}
+        onChange={(e) => { setKorean(e.target.checked); }}/>}
        label="Korean"
       />   
       
       <FormControlLabel
         control={<Checkbox checked={Dutch}
-        onChange={(event) => filterDutch(event)} />}
+        onChange={(e) => { setDutch(e.target.checked); }} />}
        label="Dutch"
       />  
 
       <FormControlLabel
       control={<Checkbox checked={Japanese}
-      onChange={(event) => filterJapanese(event)} />}
+      onChange={(e) => { setJapanese(e.target.checked); }} />}
       label="Japanese"
       />   
 
@@ -518,7 +487,7 @@ function App() {
       <div className="tituloFavs"> TEAMS </div>
 
     <div className="teams">
-      {Array.from(new Set(teamsArray)).map((item, index) => (
+      {teamsArray.map((item, index) => (
           <TeamCard 
           country={item.country} 
           flag={item.flag} 
