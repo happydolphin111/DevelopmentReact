@@ -41,9 +41,10 @@ export default function TeamCard(props) {
     <div className="descr">
     <div className="Header"> Cups: </div>
     <div className="Section"> {cups}</div>
+
     </div>
 
-    <button onClick={handleClickA}> Fav </button>
+    <button onClick={handleClickA} > FAVS </button>
     </div>
     </div>
     );

@@ -170,3 +170,8 @@
   color: rgb(189, 189, 189);
   padding-right: 3px;
 }
+
+.continentss {
+  display: flex;
+  flex-direction: column;
+}
