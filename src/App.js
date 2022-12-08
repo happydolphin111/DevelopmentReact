@@ -129,8 +129,6 @@ function App() {
       }
     }
 
-  
-
     // Change filter
     // Continents
     const filterSouthAmerica = (e) => {
@@ -141,7 +139,7 @@ function App() {
         else {
         setSouthAmerica(true)
         const single_data = new_array.filter(data => data.continent === "South America")
-        setTeamsArray(teamsArray.concat(single_data));
+        setTeamsArray(teamsArray.concat(single_data))
         }
       };
 
@@ -203,6 +201,7 @@ function App() {
         else {
           setSpanish(true)
           const single_data = new_array.filter(data => data.language === "Spanish")
+          //setTeamsArray(teamsArray.concat(single_data));
           setTeamsArray(teamsArray.concat(single_data));
         }
       };
@@ -519,7 +518,7 @@ function App() {
       <div className="tituloFavs"> TEAMS </div>
 
     <div className="teams">
-        {teamsArray.map((item, index) => (
+      {Array.from(new Set(teamsArray)).map((item, index) => (
           <TeamCard 
           country={item.country} 
           flag={item.flag} 
