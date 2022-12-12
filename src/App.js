@@ -12,6 +12,8 @@ import { useState, useEffect } from "react";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import info from "./assets/Images/info.Icon.png";
+//import MultiValue from 'react-select/dist/declarations/src/components/MultiValue';
+//import images from "./assets/Images"
 //import heart from "./Images/heart.jpeg";
 
    //Images
@@ -46,11 +48,9 @@ function App() {
   //teamsArray.sort((a, b) => a.firstLetter > b.firstLetter);
   //setTeamsArray(teamsArray) // Defaults to teams sorted in alphabetical order
 
-
   // Initializing Section
-  const [fav, setFav] = useState(new Set()) // Array keeping track of favorite teams
-  //const [fav, setFav] = useState([])
-
+  const [fav, setFav] = useState(new Set()) // Set keeping track of favorite teams
+ // const [fav, setFav] = useState([]) // Array keeping track of favorite teams
   const [favsSum, setfavsSum] = useState(0) // Aggregator value is adding the number of cups won between favorite teams
 
 
@@ -60,61 +60,60 @@ function App() {
 
   // Favorites
 
-    // Add/Remove from Favs (w/ Set)
-  function AddToFavs(item) {
-    const newFav = new Set(fav)
-      if (newFav.has(item)){
-        newFav.delete(item)  
-        }
-      else {
-        newFav.add(item)  
-        }
-      setFav(newFav)
-        
-    // Cumulative Sum of Cups
-    var numberCups = 0;
-      fav.forEach((favsiter) => {
-        numberCups += favsiter.cups})
-      setfavsSum(numberCups)
-
-      };
-    
-
-      // w/ Array
-      {/*
-
-    function AddToFavs(item) {
-      const newFav = [...fav]
-        if (newFav.includes(item)){
-          newFav = [...newFav, item]
-            }
-        else {
-          newFav.splice(newFav.indexOf(item), 1) 
+  /*
+    function AddToFavs(item, array) {
+      if (array.includes(item)){
+        return array.splice(array.indexOf(item), 1) 
           }
-        setFav(newFav)
+      else {
+        return [...array, item]
+        }
           
       // Cumulative Sum of Cups
       var numberCups = 0;
-          for (var i = 0; i < fav.length(); i++) {
-          numberCups += fav[i].cups;}
-          setfavsSum(numberCups);
-        };
-        */}
-  
+        for (var i = 0; i < fav.length(); i++) {
+        numberCups += fav[i].cups;}
+        setfavsSum(numberCups);
+    };
+*/
+
+  // Reset
+  const handleClickReset = () => {
+    setSouthAmerica(false)
+    setNorthAmerica(false)
+    setAfrica(false)
+    setAsia(false)
+    setEurope(false)
+
+    setSpanish(false)
+    setPortuguese(false)
+    setFrench(false)
+    setEnglish(false)
+    setPolish(false)
+    setCroatian(false)
+    setArabic(false)
+    setKorean(false)
+    setJapanese(false)
+    setDutch(false)
+
+    setSort("ascending")
+  }
+
 
   // Change Sort
 
     const handleClickB = (e) => {
       let sort1 = e.target.value
       setSort(sort1)
-
-      if (sort === "ascending") {
-        setTeamsArray(teamsArray.sort((a, b) => a.country < b.country));
-      } else {
-        setTeamsArray(teamsArray.sort((a, b) => a.country > b.country));
-      }
     }
 
+    const sortFunction = (array) => {
+      if (sort === "descending") {
+        return array.sort((a, b) => a.country < b.country);
+      } else {
+        return array.sort((a, b) => a.country > b.country);
+      }
+    }
 
     // Change filter
 
@@ -261,6 +260,8 @@ function App() {
 
     useEffect(() => {
       let teamsArray = [...teams];
+      let favsSet = new Set(fav);
+      let favsSum1 = favsSum;
 
       teamsArray = filterSouthAmerica(teamsArray);
       teamsArray = filterNorthAmerica(teamsArray);
@@ -279,10 +280,15 @@ function App() {
       teamsArray = filterKorean(teamsArray);
       teamsArray = filterJapanese(teamsArray);
 
-      setTeamsArray(teamsArray)
+      teamsArray = sortFunction(teamsArray);
 
-    }, [filterSouthAmerica, filterNorthAmerica, filterAfrica, filterAsia, filterEurope, filterSpanish, filterPortuguese,
-    filterEnglish, filterFrench, filterPolish, filterCroatian, filterDutch, filterArabic, filterKorean, filterJapanese]
+   
+      //setfavsSum(favsSum1);
+      setTeamsArray(teamsArray);
+
+    }, [
+      SouthAmerica, NorthAmerica, Asia, Africa, Europe, Spanish, Portuguese, 
+      English, French, Croatian, Polish, Arabic, Korean, Dutch, Japanese, sort, fav, favsSum,]
     )
 
 
@@ -380,9 +386,10 @@ function App() {
 <div>
       <FormControlLabel
         control={<Checkbox checked={French}
-        onChange={(event) => setFrench(event)} />}
+        onChange={(e) => { setFrench(e.target.checked); }} />}
        label="French"
       />   
+ 
 
       <FormControlLabel
         control={<Checkbox checked={Croatian}
@@ -441,6 +448,21 @@ function App() {
   
         </select>
         </div>
+
+
+        <div className = 'ResetAndInfo'> 
+        <div className="Resetting">  
+        
+        <div className="MenuItem"> Reset </div>
+        <div> 
+        <FormControlLabel
+          control=
+          {<Checkbox 
+            onChange={(e) => handleClickReset(e)}/>}
+          />   
+          </div>
+
+        </div>
       
 
         {/* PopUp window with Instructions */}
@@ -449,10 +471,15 @@ function App() {
         <div className="descriptionMain1"> In this page you will be able to: </div>
         <div className="descriptionMain"> - Filter current World Cup teams by their continent and main language</div>
         <div className="descriptionMain"> - Sort these teams from A-Z, or from Z-A</div>
-        <div className="descriptionMain"> - Add and remove from Favorites, where you will be able to see the cumulative sum of world cups won</div>
+        <div className="descriptionMain"> - Add and remove from Favorites by clicking on the "FAVS" button, where you will be able to see the cumulative sum of world cups won</div>
+        <div className="descriptionMain"> - Click the Reset button to reset your choices. </div>
         </div>
         </Popup>
   
+        
+
+
+        </div>
         </div>
 
         <div>  . </div>
@@ -463,21 +490,16 @@ function App() {
       
       <div className="tituloFavs"> FAVORITES </div>
       
-      {fav.values((item) => (
-          <div>
+      <div className="FavsCards"> 
+      {Array.from(fav).map((item, index) => (
+          <div className="FavItem">
             <p>{item.country}</p>
-            <p>{item.cups}</p>
+            <p>Number of Cups: {item.cups}</p>
           </div>
 
       ))} 
+</div>
 
-      {/*{fav.map((item, index) => (
-          <div>
-            <p>{item.country}</p>
-            <p>{item.cups}</p>
-          </div>
-
-      ))} */}
 
       <div className="copas"> Cumulative Number of Cups: {favsSum}</div>
 
@@ -494,7 +516,9 @@ function App() {
           language={item.language} 
           continent={item.continent} 
           cups={item.cups} 
-          AddToFavs={AddToFavs} />
+          fav={fav} 
+          setFav = {setFav}
+          setfavsSum = {setfavsSum}/>
         ))}
         
       </div>

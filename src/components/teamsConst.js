@@ -10,19 +10,34 @@ export default function TeamCard(props) {
     const language = props.language
     const continent = props.continent
     const cups = props.cups
-    const AddToFavs = props.AddToFavs
+    //const AddToFavs = props.AddToFavs
+    const fav = props.fav
+    const setFav = props.setFav
+    const setfavsSum = props.setfavsSum
 
- 
 
-    const handleClickA =() => {
-      AddToFavs(props)
+    const handleClickA = () => {
+      const newFav = new Set(fav)
+      if (newFav.has(props)){
+         setFav(newFav.delete(props))
+        }
+      else {
+         setFav(newFav.add(props))
+        }
+
+       // Cumulative Sum of Cups
+      var numberCups = 0;
+      const FavsArray = Array.from(newFav)
+      for (var i = 0; i < FavsArray.length; i++) {
+      numberCups += FavsArray[i].cups;}
+      setfavsSum(numberCups);
     }
 
     return (
     <div className="TeamCard"> 
     
     <div className="teamdivision">
-    <img src={process.env.PUBLIC_URL + {flag}} alt="Country's Flag"/>
+    <img src={process.env.PUBLIC_URL + "/" + {flag}} alt="Country's Flag"/>
     </div>
 
     <div className="teamdivision">
