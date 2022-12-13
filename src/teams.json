@@ -50,7 +50,7 @@
 
     {
         "country": "Morocco",
-        "flag": "/public/assets/images/Morocco.png",
+        "flag": "assets/images/Morocco.png",
         "language": "Arabic",
         "continent": "Africa",
         "cups": 0
@@ -58,7 +58,7 @@
 
     {
         "country": "Netherlands",
-        "flag": "/public/assets/images/Netherlands.png",
+        "flag": "assets/images/Netherlands.png",
         "language": "Dutch",
         "continent": "Europe",
         "cups": 0
@@ -66,7 +66,7 @@
 
     {
         "country": "Poland",
-        "flag": "/assets/images/Poland.png",
+        "flag": "assets/images/Poland.png",
         "language": "Polish",
         "continent": "Europe",
         "cups": 0
@@ -74,7 +74,7 @@
 
     {
         "country": "Portugal",
-        "flag": "/assets/images/Portugal.png",
+        "flag": "assets/images/Portugal.png",
         "language": "Portuguese",
         "continent": "Europe",
         "cups": 0
@@ -82,7 +82,7 @@
 
     {
         "country": "Senegal",
-        "flag": "/assets/images/Senegal.png",
+        "flag": "assets/images/Senegal.png",
         "language": "French",
         "continent": "Africa",
         "cups": 0
@@ -90,7 +90,7 @@
 
     {
         "country": "South Korea",
-        "flag": "/assets/images/South Korea.png",
+        "flag": "assets/images/SouthKorea.png",
         "language": "Korean",
         "continent": "Asia",
         "cups": 0
@@ -98,7 +98,7 @@
 
     {
         "country": "Spain",
-        "flag": "/assets/images/Spain.png",
+        "flag": "assets/images/Spain.png",
         "language": "Spanish",
         "continent": "Europe",
         "cups": 1
@@ -106,7 +106,7 @@
 
     {
         "country": "United States",
-        "flag": "/assets/images/USA.png",
+        "flag": "assets/images/USA.png",
         "language": "English",
         "continent": "North America",
         "cups": 0
