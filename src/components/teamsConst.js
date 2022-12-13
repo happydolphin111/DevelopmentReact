@@ -30,7 +30,7 @@ export default function TeamCard({fav, setFav, setfavsSum, item}) {
     <div className="TeamCard"> 
     
     <div className="teamdivision">
-    <img src={flag} height="90" alt="Country's Flag"/>
+    <img src={flag} height="90" alt={country} + "Flag"/>
     </div>
 
     <div className="teamdivision">
@@ -52,7 +52,7 @@ export default function TeamCard({fav, setFav, setfavsSum, item}) {
 
     </div>
 
-    <button onClick={handleClickA} > ADD / REMOVE </button>
+    <button onClick={handleClickA} > FAV / REMOVE </button>
     </div>
     </div>
     );
