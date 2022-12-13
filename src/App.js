@@ -466,6 +466,7 @@ function App() {
         <div className="descriptionMain"> - Filter current World Cup teams by their continent and main language</div>
         <div className="descriptionMain"> - Sort these teams from A-Z, or from Z-A</div>
         <div className="descriptionMain"> - Add and remove from Favorites by clicking on the "FAVS" button, where you will be able to see the cumulative sum of world cups won</div>
+        <div className="descriptionMain"> - Note: Teams can only be added once to the Favorites section.</div>
         <div className="descriptionMain"> - Click the Reset button to reset your choices. </div>
         </div>
         </Popup>
