@@ -2,7 +2,7 @@
 
     {
         "country": "Argentina",
-        "flag": "/assets/images/Argentina.png",
+        "flag": "assets/images/Argentina.png",
         "language": "Spanish",
         "continent": "South America",
         "cups": 2
@@ -10,7 +10,7 @@
 
     {
         "country": "Brasil",
-        "flag": "/assets/images/Brasil.png",
+        "flag": "assets/images/Brasil.png",
         "language": "Portuguese",
         "continent": "South America",
         "cups": 5
@@ -18,7 +18,7 @@
 
     {
         "country": "Croatia",
-        "flag": "/assets/images/Croatia.png",
+        "flag": "assets/images/Croatia.png",
         "language": "Croatian",
         "continent": "Europe",
         "cups": 0
@@ -26,7 +26,7 @@
 
     {
         "country": "England",
-        "flag": "/assets/images/England.png",
+        "flag": "assets/images/England.png",
         "language": "English",
         "continent": "Europe",
         "cups": 1
@@ -34,7 +34,7 @@
 
     {
         "country": "France",
-        "flag": "/assets/images/France.png",
+        "flag": "assets/images/France.png",
         "language": "French",
         "continent": "Europe",
         "cups": 2
@@ -42,7 +42,7 @@
 
     {
         "country": "Japan",
-        "flag": "/assets/images/Japan.png",
+        "flag": "assets/images/Japan.png",
         "language": "Japanese",
         "continent": "Asia",
         "cups": 0
