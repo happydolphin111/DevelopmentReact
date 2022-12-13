@@ -50,7 +50,7 @@
 
     {
         "country": "Morocco",
-        "flag": "/assets/images/Morocco.png",
+        "flag": "/public/assets/images/Morocco.png",
         "language": "Arabic",
         "continent": "Africa",
         "cups": 0
@@ -58,7 +58,7 @@
 
     {
         "country": "Netherlands",
-        "flag": "/assets/images/Netherlands.png",
+        "flag": "/public/assets/images/Netherlands.png",
         "language": "Dutch",
         "continent": "Europe",
         "cups": 0
