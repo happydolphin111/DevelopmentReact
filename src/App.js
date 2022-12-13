@@ -9,6 +9,7 @@ import React, { Component } from "react";
 import { useState, useEffect } from "react";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import {useRef} from 'react';
 //import info from "./info.Icon.png";
    //Images
 
@@ -50,26 +51,16 @@ function App() {
 
   const [teamsArray, setTeamsArray] = useState(teams) // Array of all teams
 
+
   // Changing states
 
-  // Favorites
+  //Scroll to Teams
+  const ref1 = useRef(null);
 
-  /*
-    function AddToFavs(item, array) {
-      if (array.includes(item)){
-        return array.splice(array.indexOf(item), 1) 
-          }
-      else {
-        return [...array, item]
-        }
-          
-      // Cumulative Sum of Cups
-      var numberCups = 0;
-        for (var i = 0; i < fav.length(); i++) {
-        numberCups += fav[i].cups;}
-        setfavsSum(numberCups);
-    };
-*/
+  const handleClickScrollTeams = () => {
+    ref1.current?.scrollIntoView({behavior: 'smooth', block: 'center' });
+  };
+
 
   // Reset
   const handleClickReset = () => {
@@ -254,8 +245,6 @@ function App() {
 
     useEffect(() => {
       let teamsArray = [...teams];
-      let favsSet = new Set(fav);
-      let favsSum1 = favsSum;
 
       teamsArray = filterSouthAmerica(teamsArray);
       teamsArray = filterNorthAmerica(teamsArray);
@@ -276,8 +265,6 @@ function App() {
 
       teamsArray = sortFunction(teamsArray);
 
-   
-      //setfavsSum(favsSum1);
       setTeamsArray(teamsArray);
 
     }, [
@@ -293,10 +280,17 @@ function App() {
 
         {/* Headers */}
         <div className="TopOfPage">
-        <div className="welcome"> Welcome!</div>
+
+          <div className="welcomeANDgoto">
+            <div className="welcome"> Welcome!</div>
+            <div> <button className='MeButton' 
+            onClick={handleClickScrollTeams}> Go To Teams </button> </div>
+          </div>
+
         <div className="subtitle"> WORLD CUP </div>
         <header className ="mainHeader"> QATAR 2022 </header>
         <div className="subtitle"> Round of 16 </div>
+
         </div>
 
         {/* Menu Bar */}
@@ -500,7 +494,7 @@ function App() {
       </div>
 
       <div className="TeamCards">
-      <div className="tituloFavs"> TEAMS </div>
+      <div className="tituloFavs" ref={ref1}> TEAMS </div>
 
     <div className="teams">
       {teamsArray.map((item, index) => (

@@ -25,10 +25,10 @@
 }
 
 .welcome {
-  text-align: left;
   padding-left: 10vw;
-  padding-top: 10vw;
+
   font-size: 3vw;
+  text-align: left;
 }
 
 .mainHeader {
@@ -222,4 +222,22 @@
   text-align: center;
   font-size: 1.2vw;
   font-weight: 800;
+}
+
+.MeButton {
+  background-color: transparent;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: rgb(229, 227, 227);
+  border: 0;
+  font-weight: 800;
+  font-size: 2vw;
+  padding-right: 10vw;
+}
+
+.welcomeANDgoto {
+  padding-top: 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
