@@ -487,7 +487,7 @@ function App() {
       <div className="FavsCards"> 
       {Array.from(fav).map((item, index) => (
           <div className="FavItem">
-            <p>{item.country}</p>
+            <p className="countryName">{item.country}</p>
             <p>Number of Cups: {item.cups}</p>*
           </div>
 

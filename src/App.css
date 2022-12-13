@@ -216,3 +216,10 @@
 .FavsSection {
   height: 27vw;
 }
+
+.countryName {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 800;
+}
