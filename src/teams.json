@@ -10,7 +10,7 @@
 
     {
         "country": "Brasil",
-        "flag": "src/Country_Flags/Brasil.png",
+        "flag": "/assets/images/Brasil.png",
         "language": "Portuguese",
         "continent": "South America",
         "cups": 5
@@ -18,7 +18,7 @@
 
     {
         "country": "Croatia",
-        "flag": "src/Country_Flags/Croatia.png",
+        "flag": "/assets/images/Croatia.png",
         "language": "Croatian",
         "continent": "Europe",
         "cups": 0
@@ -26,7 +26,7 @@
 
     {
         "country": "England",
-        "flag": "src/Country_Flags/England.png",
+        "flag": "/assets/images/England.png",
         "language": "English",
         "continent": "Europe",
         "cups": 1
@@ -34,7 +34,7 @@
 
     {
         "country": "France",
-        "flag": "src/Country_Flags/France.png",
+        "flag": "/assets/images/France.png",
         "language": "French",
         "continent": "Europe",
         "cups": 2
@@ -42,7 +42,7 @@
 
     {
         "country": "Japan",
-        "flag": "src/Country_Flags/Japan.png",
+        "flag": "/assets/images/Japan.png",
         "language": "Japanese",
         "continent": "Asia",
         "cups": 0
@@ -50,7 +50,7 @@
 
     {
         "country": "Morocco",
-        "flag": "src/Country_Flags/Morocco.png",
+        "flag": "/assets/images/Morocco.png",
         "language": "Arabic",
         "continent": "Africa",
         "cups": 0
@@ -58,7 +58,7 @@
 
     {
         "country": "Netherlands",
-        "flag": "src/Country_Flags/Netherlands.png",
+        "flag": "/assets/images/Netherlands.png",
         "language": "Dutch",
         "continent": "Europe",
         "cups": 0
@@ -66,7 +66,7 @@
 
     {
         "country": "Poland",
-        "flag": "src/Country_Flags/Poland.png",
+        "flag": "/assets/images/Poland.png",
         "language": "Polish",
         "continent": "Europe",
         "cups": 0
@@ -74,7 +74,7 @@
 
     {
         "country": "Portugal",
-        "flag": "Portugal.png",
+        "flag": "/assets/images/Portugal.png",
         "language": "Portuguese",
         "continent": "Europe",
         "cups": 0
@@ -82,7 +82,7 @@
 
     {
         "country": "Senegal",
-        "flag": "src/Country_Flags/Senegal.png",
+        "flag": "/assets/images/Senegal.png",
         "language": "French",
         "continent": "Africa",
         "cups": 0
@@ -90,7 +90,7 @@
 
     {
         "country": "South Korea",
-        "flag": "src/Country_Flags/South Korea.png",
+        "flag": "/assets/images/South Korea.png",
         "language": "Korean",
         "continent": "Asia",
         "cups": 0
@@ -98,7 +98,7 @@
 
     {
         "country": "Spain",
-        "flag": "src/Country_Flags/Spain.png",
+        "flag": "/assets/images/Spain.png",
         "language": "Spanish",
         "continent": "Europe",
         "cups": 1
@@ -106,7 +106,7 @@
 
     {
         "country": "United States",
-        "flag": "src/assets/Images/Country_Flags/USA.png",
+        "flag": "/assets/images/USA.png",
         "language": "English",
         "continent": "North America",
         "cups": 0

@@ -1,21 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import "bootstrap"
-import Teams from "./assets/teams.json"
+import Teams from "./teams.json"
 import TeamCard from "./components/teamsConst"
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
-//import { default as ReactSelect } from "react-select";
-//import { components } from "react-select";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import info from "./assets/Images/info.Icon.png";
-//import MultiValue from 'react-select/dist/declarations/src/components/MultiValue';
-//import images from "./assets/Images"
-//import heart from "./Images/heart.jpeg";
-
+//import info from "./info.Icon.png";
    //Images
 
 function App() {
@@ -466,7 +460,7 @@ function App() {
       
 
         {/* PopUp window with Instructions */}
-        <Popup trigger={<button className="info"> <img src={info} width="30vw" height="30vw" /></button>} position="right">
+        <Popup trigger={<button className="info"> <img src={"assets/images/info.Icon.png"} width="30vw" height="30vw" /></button>} position="right">
         <div className="popupInfo">
         <div className="descriptionMain1"> In this page you will be able to: </div>
         <div className="descriptionMain"> - Filter current World Cup teams by their continent and main language</div>
@@ -494,7 +488,7 @@ function App() {
       {Array.from(fav).map((item, index) => (
           <div className="FavItem">
             <p>{item.country}</p>
-            <p>Number of Cups: {item.cups}</p>
+            <p>Number of Cups: {item.cups}</p>*
           </div>
 
       ))} 
@@ -511,14 +505,15 @@ function App() {
     <div className="teams">
       {teamsArray.map((item, index) => (
           <TeamCard 
-          country={item.country} 
-          flag={item.flag} 
-          language={item.language} 
-          continent={item.continent} 
-          cups={item.cups} 
+          // country={item.country} 
+          // flag={item.flag} 
+          // language={item.language} 
+          // continent={item.continent} 
+          // cups={item.cups} 
           fav={fav} 
           setFav = {setFav}
-          setfavsSum = {setfavsSum}/>
+          setfavsSum = {setfavsSum}
+          item={item}/>
         ))}
         
       </div>

@@ -2,42 +2,35 @@
 import {useSate} from "react";
 //import heart from "/assets/images/*";
 
-export default function TeamCard(props) {
+export default function TeamCard({fav, setFav, setfavsSum, item}) {
 
-    // Giving props a variable name to facilitate use
-    const country = props.country
-    const flag = props.flag
-    const language = props.language
-    const continent = props.continent
-    const cups = props.cups
-    //const AddToFavs = props.AddToFavs
-    const fav = props.fav
-    const setFav = props.setFav
-    const setfavsSum = props.setfavsSum
-
+    const {country, flag, language, continent, cups} = item;
 
     const handleClickA = () => {
       const newFav = new Set(fav)
-      if (newFav.has(props)){
-         setFav(newFav.delete(props))
-        }
+
+      if (!newFav.has(item)) {
+        newFav.add(item)}
       else {
-         setFav(newFav.add(props))
-        }
+        console.log('del', item, newFav.has(item))
+        newFav.delete(item)}
+      setFav(newFav)
+
 
        // Cumulative Sum of Cups
-      var numberCups = 0;
-      const FavsArray = Array.from(newFav)
-      for (var i = 0; i < FavsArray.length; i++) {
-      numberCups += FavsArray[i].cups;}
+      let numberCups = 0;
+      const NewFavsArray = Array.from(newFav)
+      for (var i = 0; i < NewFavsArray.length; i++) {
+      numberCups += NewFavsArray[i].cups;}
       setfavsSum(numberCups);
     }
+
 
     return (
     <div className="TeamCard"> 
     
     <div className="teamdivision">
-    <img src={process.env.PUBLIC_URL + "/" + {flag}} alt="Country's Flag"/>
+    <img src={flag} height="90" alt="Country's Flag"/>
     </div>
 
     <div className="teamdivision">
@@ -59,7 +52,7 @@ export default function TeamCard(props) {
 
     </div>
 
-    <button onClick={handleClickA} > FAVS </button>
+    <button onClick={handleClickA} > ADD / REMOVE </button>
     </div>
     </div>
     );
