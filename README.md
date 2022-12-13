@@ -21,5 +21,4 @@ Data is passed down to my TeamCards components by rendering each team's card wit
 
 
 ### How the User Triggers State Changes
-
 The user triggers state changes when filtering by continent and language, as well as by sorting and adding/removing from favorites.
